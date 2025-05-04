@@ -1,68 +1,244 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Bebê de Schrödinger</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      background-color: #f9f9f9;
-      padding: 20px;
-    }
+    <meta charset="UTF-8"/>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
 
-    table {
-      border-collapse: collapse;
-      margin: auto;
-    }
+        td {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid #ccc;
+            transition: background-color 0.3s ease;
+        }
 
-    td {
-      width: 40px;
-      height: 40px;
-      text-align: center;
-      vertical-align: middle;
-      font-size: 20px;
-      font-weight: bold;
-      border: 1px solid #ddd;
-      color: #333;
-    }
+        /* Tons pastel azul (mais suaves e harmoniosos) */
+        .A { background-color: #cce3f6; }  /* Azul claro */
+        .F { background-color: #d0e7f9; }
+        .O { background-color: #b3d9f7; }
+        .I { background-color: #c0e4f2; }
+        .T { background-color: #d6effb; }
+        .R { background-color: #a6cde7; }
+        .L { background-color: #d4edf4; }
 
-    /* Estilos por letra em tons pastel azul/rosa */
-    .A { background-color: #fddde6; }
-    .B { background-color: #e2f0ff; }
-    .C { background-color: #d6e4f0; }
-    .D { background-color: #ffdae0; }
-    .E { background-color: #e8f1f8; }
-    .F { background-color: #ffe6ee; }
-    .I { background-color: #d0eaff; }
-    .L { background-color: #fbe0f0; }
-    .N { background-color: #cbe0f5; }
-    .O { background-color: #fae4f4; }
-    .P { background-color: #e1f1fa; }
-    .R { background-color: #f3e4ec; }
-    .S { background-color: #d9f0ff; }
-    .T { background-color: #fde6ef; }
-    .♥ { background-color: #ffd6e8; color: #c2185b; }
+        /* Tons pastel rosa (harmoniosos) */
+        .B { background-color: #f9c7d9; }  /* Rosa claro */
+        .C { background-color: #fdd1dc; }
+        .D { background-color: #f7b7c9; }
+        .E { background-color: #ffe2ec; }
+        .N { background-color: #f8cad9; }
+        .P, .M { background-color: #fbcdd8; }
+        .S { background-color: #fcd6e3; }
 
-    /* Estilo alternativo para ♥ se preferir classe */
-    .heart { background-color: #ffd6e8; color: #c2185b; }
-  </style>
+        /* Símbolo especial */
+        .♥ { background-color: #f4c2c2; }  /* Rosa vintage */
+
+        /* Estilo de destaque (verde pastel) */
+        .highlight {
+            background-color: #afeeee !important;
+        }
+
+        .checkbox-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .checkbox-container label {
+            font-family: sans-serif;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
 
-<h2 style="text-align:center;">Bebê de Schrödinger</h2>
+<div class="checkbox-container">
+    <!-- Checkboxes gerados dinamicamente -->
+    <label><input type="checkbox" value="A" onchange="toggleHighlight(this)"> A</label>
+    <label><input type="checkbox" value="B" onchange="toggleHighlight(this)"> B</label>
+    <label><input type="checkbox" value="C" onchange="toggleHighlight(this)"> C</label>
+    <label><input type="checkbox" value="D" onchange="toggleHighlight(this)"> D</label>
+    <label><input type="checkbox" value="E" onchange="toggleHighlight(this)"> E</label>
+    <label><input type="checkbox" value="F" onchange="toggleHighlight(this)"> F</label>
+    <label><input type="checkbox" value="I" onchange="toggleHighlight(this)"> I</label>
+    <label><input type="checkbox" value="L" onchange="toggleHighlight(this)"> L</label>
+    <label><input type="checkbox" value="M" onchange="toggleHighlight(this)"> M</label>
+    <label><input type="checkbox" value="N" onchange="toggleHighlight(this)"> N</label>
+    <label><input type="checkbox" value="O" onchange="toggleHighlight(this)"> O</label>
+    <label><input type="checkbox" value="P" onchange="toggleHighlight(this)"> P</label>
+    <label><input type="checkbox" value="R" onchange="toggleHighlight(this)"> R</label>
+    <label><input type="checkbox" value="S" onchange="toggleHighlight(this)"> S</label>
+    <label><input type="checkbox" value="T" onchange="toggleHighlight(this)"> T</label>
+    <label><input type="checkbox" value="♥" onchange="toggleHighlight(this)"> ♥</label>
+</div>
 
 <table>
-  <tbody>
-    <tr><td class="F">F</td><td class="E">E</td><td class="R">R</td><td class="N">N</td><td class="A">A</td><td class="N">N</td><td class="D">D</td><td class="O">O</td><td class="C">C</td><td class="R">R</td><td class="L">L</td><td class="P">P</td><td class="I">I</td><td class="S">S</td><td class="T">T</td><td class="♥">♥</td></tr>
-    <tr><td class="P">P</td><td class="L">L</td><td class="I">I</td><td class="S">S</td><td class="T">T</td><td class="O">O</td><td class="A">A</td><td class="R">R</td><td class="N">N</td><td class="D">D</td><td class="E">E</td><td class="F">F</td><td class="C">C</td><td class="B">B</td><td class="N">N</td><td class="A">A</td></tr>
-    <tr><td class="D">D</td><td class="A">A</td><td class="N">N</td><td class="O">O</td><td class="R">R</td><td class="I">I</td><td class="F">F</td><td class="P">P</td><td class="S">S</td><td class="T">T</td><td class="B">B</td><td class="C">C</td><td class="L">L</td><td class="R">R</td><td class="F">F</td><td class="♥">♥</td></tr>
-    <tr><td class="S">S</td><td class="T">T</td><td class="L">L</td><td class="F">F</td><td class="P">P</td><td class="B">B</td><td class="C">C</td><td class="R">R</td><td class="O">O</td><td class="N">N</td><td class="D">D</td><td class="E">E</td><td class="I">I</td><td class="N">N</td><td class="O">O</td><td class="A">A</td></tr>
-    <tr><td class="♥">♥</td><td class="C">C</td><td class="D">D</td><td class="I">I</td><td class="T">T</td><td class="L">L</td><td class="A">A</td><td class="R">R</td><td class="S">S</td><td class="N">N</td><td class="B">B</td><td class="F">F</td><td class="O">O</td><td class="C">C</td><td class="T">T</td><td class="S">S</td></tr>
-    <tr><td class="A">A</td><td class="N">N</td><td class="O">O</td><td class="P">P</td><td class="D">D</td><td class="R">R</td><td class="C">C</td><td class="B">B</td><td class="I">I</td><td class="F">F</td><td class="L">L</td><td class="E">E</td><td class="S">S</td><td class="T">T</td><td class="A">A</td><td class="♥">♥</td></tr>
-    <tr><td class="N">N</td><td class="R">R</td><td class="C">C</td><td class="I">I</td><td class="F">F</td><td class="T">T</td><td class="B">B</td><td class="L">L</td><td class="A">A</td><td class="P">P</td><td class="E">E</td><td class="O">O</td><td class="D">D</td><td class="R">R</td><td class="N">N</td><td class="A">A</td></tr>
-    <tr><td class="P">P</td><td class="F">F</td><td class="T">T</td><td class="L">L</td><td class="C">C</td><td class="E">E</td><td class="N">N</td><td class="I">I</td><td class="O">O</td><td class="B">B</td><td class="S">S</td><td class="R">R</td><td class="A">A</td><td class="D">D</td><td class="F">F</td><td class="♥">♥</td></tr>
-  </tbody>
+    <tbody>
+    <tr>
+        <td class="B">B</td>
+        <td class="F">F</td>
+        <td class="D">D</td>
+        <td class="R">R</td>
+        <td class="O">O</td>
+        <td class="N">N</td>
+        <td class="B">B</td>
+        <td class="E">E</td>
+        <td class="L">L</td>
+        <td class="L">L</td>
+        <td class="A">A</td>
+        <td class="O">O</td>
+        <td class="F">F</td>
+        <td class="E">E</td>
+        <td class="P">P</td>
+        <td class="N">N</td>
+    </tr>
+    <tr>
+        <td class="M">M</td>
+        <td class="T">T</td>
+        <td class="N">N</td>
+        <td class="T">T</td>
+        <td class="F">F</td>
+        <td class="C">C</td>
+        <td class="N">N</td>
+        <td class="♥">♥</td>
+        <td class="E">E</td>
+        <td class="F">F</td>
+        <td class="E">E</td>
+        <td class="D">D</td>
+        <td class="P">P</td>
+        <td class="F">F</td>
+        <td class="♥">♥</td>
+        <td class="P">P</td>
+    </tr>
+    <tr>
+        <td class="A">A</td>
+        <td class="I">I</td>
+        <td class="B">B</td>
+        <td class="A">A</td>
+        <td class="♥">♥</td>
+        <td class="D">D</td>
+        <td class="N">N</td>
+        <td class="C">C</td>
+        <td class="T">T</td>
+        <td class="T">T</td>
+        <td class="F">F</td>
+        <td class="C">C</td>
+        <td class="R">R</td>
+        <td class="C">C</td>
+        <td class="S">S</td>
+        <td class="C">C</td>
+    </tr>
+    <tr>
+        <td class="E">E</td>
+        <td class="O">O</td>
+        <td class="L">L</td>
+        <td class="E">E</td>
+        <td class="B">B</td>
+        <td class="O">O</td>
+        <td class="I">I</td>
+        <td class="B">B</td>
+        <td class="O">O</td>
+        <td class="♥">♥</td>
+        <td class="S">S</td>
+        <td class="A">A</td>
+        <td class="P">P</td>
+        <td class="C">C</td>
+        <td class="L">L</td>
+        <td class="♥">♥</td>
+    </tr>
+    <tr>
+        <td class="L">L</td>
+        <td class="T">T</td>
+        <td class="D">D</td>
+        <td class="E">E</td>
+        <td class="B">B</td>
+        <td class="I">I</td>
+        <td class="E">E</td>
+        <td class="B">B</td>
+        <td class="S">S</td>
+        <td class="C">C</td>
+        <td class="I">I</td>
+        <td class="D">D</td>
+        <td class="P">P</td>
+        <td class="D">D</td>
+        <td class="A">A</td>
+        <td class="R">R</td>
+    </tr>
+    <tr>
+        <td class="♥">♥</td>
+        <td class="T">T</td>
+        <td class="F">F</td>
+        <td class="S">S</td>
+        <td class="I">I</td>
+        <td class="B">B</td>
+        <td class="D">D</td>
+        <td class="S">S</td>
+        <td class="♥">♥</td>
+        <td class="I">I</td>
+        <td class="C">C</td>
+        <td class="A">A</td>
+        <td class="R">R</td>
+        <td class="O">O</td>
+        <td class="L">L</td>
+        <td class="S">S</td>
+    </tr>
+    <tr>
+        <td class="N">N</td>
+        <td class="O">O</td>
+        <td class="A">A</td>
+        <td class="N">N</td>
+        <td class="P">P</td>
+        <td class="T">T</td>
+        <td class="T">T</td>
+        <td class="L">L</td>
+        <td class="F">F</td>
+        <td class="E">E</td>
+        <td class="R">R</td>
+        <td class="N">N</td>
+        <td class="A">A</td>
+        <td class="N">N</td>
+        <td class="D">D</td>
+        <td class="O">O</td>
+    </tr>
+    <tr>
+        <td class="I">I</td>
+        <td class="L">L</td>
+        <td class="R">R</td>
+        <td class="P">P</td>
+        <td class="A">A</td>
+        <td class="R">R</td>
+        <td class="I">I</td>
+        <td class="S">S</td>
+        <td class="T">T</td>
+        <td class="P">P</td>
+        <td class="A">A</td>
+        <td class="R">R</td>
+        <td class="I">I</td>
+        <td class="S">S</td>
+        <td class="B">B</td>
+        <td class="C">C</td>
+    </tr>
+    </tbody>
 </table>
+
+<script>
+    function toggleHighlight(checkbox) {
+        const letter = checkbox.value;
+        const cells = document.querySelectorAll('td.' + CSS.escape(letter));
+        cells.forEach(cell => {
+            if (checkbox.checked) {
+                cell.classList.add('highlight');
+            } else {
+                cell.classList.remove('highlight');
+            }
+        });
+    }
+</script>
 
 </body>
 </html>
