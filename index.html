@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dois Baús com Senha</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container blue">
+  <dotlottie-player id="blue" src="Blue.lottie" background="transparent" speed="1" style="width: 300px; height: 300px"></dotlottie-player>
+  <form data-id="blue" data-secret="ACBDBC" onsubmit="event.preventDefault(); batatas(this)">
+    <select name="first">
+      <option>A</option><option>B</option><option>C</option><option>D</option>
+    </select>
+    <select name="second">
+      <option>A</option><option>B</option><option>C</option><option>D</option>
+    </select>
+    <select name="third">
+      <option>A</option><option>B</option><option>C</option><option>D</option>
+    </select>
+    <select name="fourth">
+      <option>A</option><option>B</option><option>C</option><option>D</option>
+    </select>
+    <select name="fifth">
+      <option>A</option><option>B</option><option>C</option><option>D</option>
+    </select>
+    <select name="sixth">
+      <option>A</option><option>B</option><option>C</option><option>D</option>
+    </select>
+    <button>Abrir</button>
+  </form>
+  <p id="blue-hint"></p>
+</div>
+<div class="container pink">
+  <dotlottie-player id="pink" src="Pink.lottie" background="transparent" speed="1" style="width: 300px; height: 300px; transform: scaleX(-1);"></dotlottie-player>
+  <form data-id="pink" data-secret="CAABCD" onsubmit="event.preventDefault(); batatas(this)">
+    <select name="first">
+      <option>A</option><option>B</option><option>C</option><option>D</option>
+    </select>
+    <select name="second">
+      <option>A</option><option>B</option><option>C</option><option>D</option>
+    </select>
+    <select name="third">
+      <option>A</option><option>B</option><option>C</option><option>D</option>
+    </select>
+    <select name="fourth">
+      <option>A</option><option>B</option><option>C</option><option>D</option>
+    </select>
+    <select name="fifth">
+      <option>A</option><option>B</option><option>C</option><option>D</option>
+    </select>
+    <select name="sixth">
+      <option>A</option><option>B</option><option>C</option><option>D</option>
+    </select>
+    <button>Abrir</button>
+  </form>
+  <p id="pink-hint"></p>
+</div>
+
+<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<script src="app.js"></script>
+</body>
+</html>

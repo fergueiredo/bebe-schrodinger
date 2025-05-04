@@ -1,0 +1,25 @@
+body {
+    background: #f3f0f8;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+}
+.container {
+    --color: #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(transparent, var(--color));
+    border: 3px solid var(--color);
+    border-radius: 10px;
+}
+.blue {
+    --color: #236ea45a;
+}
+.pink {
+    --color: #f386d35a;
+}
