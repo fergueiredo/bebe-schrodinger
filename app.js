@@ -1,8 +1,12 @@
 var first = true
+const firstMessage = "Sozinho se vai mais rápido, Juntos se vai mais longe";
+const secondMessage = "A resposta já está em suas mãos"
 
-function batatas(form) {
+function openChest(form) {
     let formData = new FormData(form)
     let chestId = form.dataset.id
+    let button = form.querySelector("button")
+    button.disabled = true
     console.log("Chest ID: ", chestId)
     let secret = form.dataset.secret
     if (
@@ -14,13 +18,18 @@ function batatas(form) {
         secret[5] != formData.get("sixth")
     ) {
         console.log("Incorrect!")
+        button.disabled = false
         return
     }
+
+    first = false
+
+    button.innerText = "Aberto"
+
+    let hint = document.querySelector(`#${chestId}-hint`)
+    hint.innerText = first ? firstMessage : secondMessage
+    hint.classList.add("open")
+
     let chest = document.querySelector(`#${chestId}`)
     chest.play()
-    let hint = document.querySelector(`#${chestId}-hint`)
-    setTimeout(() => {
-        hint.innerText = first ? "Sozinho se vai mais rápido, Juntos se vai mais longe" : "A resposta já está em suas mãos"
-        first = false
-    }, 1000)
 }

@@ -1,60 +1,105 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <title>Dois Baús com Senha</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8"/>
+    <title>Bebé de Schrödinger</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
 </head>
 <body>
-<div class="container blue">
-  <dotlottie-player id="blue" src="Blue.lottie" background="transparent" speed="1" style="width: 300px; height: 300px"></dotlottie-player>
-  <form data-id="blue" data-secret="ACBDBC" onsubmit="event.preventDefault(); batatas(this)">
-    <select name="first">
-      <option>A</option><option>B</option><option>C</option><option>D</option>
-    </select>
-    <select name="second">
-      <option>A</option><option>B</option><option>C</option><option>D</option>
-    </select>
-    <select name="third">
-      <option>A</option><option>B</option><option>C</option><option>D</option>
-    </select>
-    <select name="fourth">
-      <option>A</option><option>B</option><option>C</option><option>D</option>
-    </select>
-    <select name="fifth">
-      <option>A</option><option>B</option><option>C</option><option>D</option>
-    </select>
-    <select name="sixth">
-      <option>A</option><option>B</option><option>C</option><option>D</option>
-    </select>
-    <button>Abrir</button>
-  </form>
-  <p id="blue-hint"></p>
-</div>
-<div class="container pink">
-  <dotlottie-player id="pink" src="Pink.lottie" background="transparent" speed="1" style="width: 300px; height: 300px; transform: scaleX(-1);"></dotlottie-player>
-  <form data-id="pink" data-secret="CAABCD" onsubmit="event.preventDefault(); batatas(this)">
-    <select name="first">
-      <option>A</option><option>B</option><option>C</option><option>D</option>
-    </select>
-    <select name="second">
-      <option>A</option><option>B</option><option>C</option><option>D</option>
-    </select>
-    <select name="third">
-      <option>A</option><option>B</option><option>C</option><option>D</option>
-    </select>
-    <select name="fourth">
-      <option>A</option><option>B</option><option>C</option><option>D</option>
-    </select>
-    <select name="fifth">
-      <option>A</option><option>B</option><option>C</option><option>D</option>
-    </select>
-    <select name="sixth">
-      <option>A</option><option>B</option><option>C</option><option>D</option>
-    </select>
-    <button>Abrir</button>
-  </form>
-  <p id="pink-hint"></p>
+<h1 class="title">Bebé de Schrödinger</h1>
+<div class="content">
+    <div class="container blue">
+        <p id="blue-hint" class="hint"></p>
+        <dotlottie-player id="blue" class="chest" src="Blue.lottie" background="transparent"
+                          speed="1"></dotlottie-player>
+        <form data-id="blue" data-secret="ACBDBC" onsubmit="event.preventDefault(); openChest(this)">
+            <select name="first">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+            </select>
+            <select name="second">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+            </select>
+            <select name="third">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+            </select>
+            <select name="fourth">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+            </select>
+            <select name="fifth">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+            </select>
+            <select name="sixth">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+            </select>
+            <button>Abrir</button>
+        </form>
+    </div>
+    <div class="container pink">
+        <p id="pink-hint" class="hint left"></p>
+        <dotlottie-player id="pink" src="Pink.lottie" class="chest flip" background="transparent"
+                          speed="1"></dotlottie-player>
+        <form data-id="pink" data-secret="CAABCD" onsubmit="event.preventDefault(); openChest(this)">
+            <select name="first">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+            </select>
+            <select name="second">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+            </select>
+            <select name="third">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+            </select>
+            <select name="fourth">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+            </select>
+            <select name="fifth">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+            </select>
+            <select name="sixth">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+            </select>
+            <button>Abrir</button>
+        </form>
+    </div>
 </div>
 
 <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>

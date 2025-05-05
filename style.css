@@ -1,14 +1,48 @@
+@font-face {
+    font-family: "Railey";
+    src: url(Railey-PersonalUse.ttf) format("truetype");
+}
 body {
-    background: #f3f0f8;
+    background: #f3f0ec;
+
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    height: 100vh;
+}
+select {
+    border-radius: 10px;
+    padding: .5rem 1rem;
+    -webkit-appearance: none;
+    background: radial-gradient(transparent 50%, var(--color));
+    border-color: var(--color);
+}
+button {
+    border-radius: 10px;
+    padding: .5rem 1rem;
+    background-color: var(--color);
+    border: 1px solid var(--color);
+    font-weight: bolder;
+    color: #333333;
+}
+button:disabled {
+    background: transparent;
+}
+.content {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: sans-serif;
+}
+.title {
+    font-family: "Railey", cursive;
+    color: #555;
+    text-align: center;
+    font-size: 4rem;
 }
 .container {
+    position: relative;
     --color: #ccc;
+    --ml: auto;
+    --mr: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,10 +50,41 @@ body {
     background: radial-gradient(transparent, var(--color));
     border: 3px solid var(--color);
     border-radius: 10px;
+    padding: 2rem;
+}
+.chest {
+    width: 400px;
+    height: 400px;
+    margin-top: -10rem;
+    margin-right: var(--mr);
+    margin-left: var(--ml);
+}
+.flip {
+    transform: scaleX(-1);
 }
 .blue {
     --color: #236ea45a;
+    --ml: -5rem;
 }
 .pink {
     --color: #f386d35a;
+    --mr: -5rem;
+}
+.hint {
+    position: absolute;
+    top: 3rem;
+    right: 2rem;
+    left: auto;
+    max-width: 15ch;
+    visibility: hidden;
+    transition: visibility;
+    transition-delay: 1s;
+    transition-timing-function: ease;
+}
+.hint.left {
+    right: auto;
+    left: 2rem;
+}
+.hint.open {
+    visibility: visible;
 }
