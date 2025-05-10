@@ -1,6 +1,6 @@
 var first = true
-const firstMessage = "Sozinho se vai mais rápido, Juntos se vai mais longe";
-const secondMessage = "A resposta já está em suas mãos"
+const firstMessage = "Quem caminha sozinho pode até chegar mais rápido, mas aquele que vai acompanhado, com certeza vai mais longe.";
+const secondMessage = "A resposta sempre esteve em suas mãos. Basta enxergá-la."
 
 function openChest(form) {
     let formData = new FormData(form)
@@ -22,13 +22,12 @@ function openChest(form) {
         return
     }
 
-    first = false
-
     button.innerText = "Aberto"
 
     let hint = document.querySelector(`#${chestId}-hint`)
     hint.innerText = first ? firstMessage : secondMessage
     hint.classList.add("open")
+    first = false
 
     let chest = document.querySelector(`#${chestId}`)
     chest.play()
